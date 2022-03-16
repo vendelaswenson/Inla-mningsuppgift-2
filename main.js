@@ -10,7 +10,8 @@ class Character {
   }
 
   compLength(data) {
-    let heightComp = Math.floor(this.height) - Math.floor(data.height);
+    const heightComp = Math.floor(this.height) - Math.floor(data.height);
+    const heightComp2 = Math.floor(data.height) - Math.floor(this.height);
     if (Number(this.height) > Number(data.height)) {
       if (this == infoOne) {
         info1.innerHTML = `<h3>My height is ${this.height} cm and ${data.name}'s height is ${data.height} cm! That's ${heightComp} cm less than me!</h3>`;
@@ -19,9 +20,9 @@ class Character {
       }
     } else if (Number(this.height) < Number(data.height)) {
       if (this == infoOne) {
-        info1.innerHTML = `<h3>My height is ${this.height} cm and ${data.name}'s height is ${data.height}cm! That's ${heightComp} cm less than me!</h3>`;
+        info1.innerHTML = `<h3>My height is ${this.height} cm and ${data.name}'s height is ${data.height}cm! That's ${heightComp2} cm more than me!</h3>`;
       } else {
-        info2.innerHTML = `<h3>My height is ${this.height} cm and ${data.name}'s height is ${data.height}cm! That's ${heightComp} cm less than me!</h3>`;
+        info2.innerHTML = `<h3>My height is ${this.height} cm and ${data.name}'s height is ${data.height}cm! That's ${heightComp2} cm more than me!</h3>`;
       }
     } else {
       if (this == infoOne) {
@@ -129,25 +130,25 @@ const infoWrapper = document.querySelector(".infoWrapper");
 const getPictureUrl = (id) => {
   switch (id) {
     case "1":
-      return "./Bilder/LukeSkywalker.png";
+      return "Bilder/LukeSkywalker.png";
     case "2":
-      return "./Bilder/C-3PO.png";
+      return "./Bilder/C-3PO.jpeg";
     case "3":
-      return "https://static.partyking.org/fit-in/1300x0/products/original/star-wars-r2-d2-kartongfigur-73775-1.jpg";
+      return "./Bilder/R2-D2.jpeg";
     case "4":
-      return "https://www.scifishop.se/wp-content/uploads/2013/12/darth-vader-konst.jpg";
+      return "./Bilder/DarthVader.jpeg";
     case "5":
-      return "http://sartorialgeek.com/wp-content/uploads/2018/09/960-e1538273942244.jpg";
+      return "./Bilder/LeiaOrgana.jpeg";
     case "6":
-      return "https://static.wikia.nocookie.net/swfanon/images/9/94/OwenLars.jpg/revision/latest?cb=20080202051733";
+      return "./Bilder/OwenLars.jpeg";
     case "7":
-      return "http://pm1.narvii.com/6168/ff4e27ef435e7191ca5429126c31754115a93776_00.jpg";
+      return "./Bilder/BeruLars.png";
     case "8":
-      return "https://www.scifishop.se/wp-content/uploads/2016/07/R5-D4-Sideshow-actionfigur.jpg";
+      return "./Bilder/R5-D4.jpeg";
     case "9":
-      return "https://static.wikia.nocookie.net/swfanon/images/5/57/BiggsDarklighter.jpg/revision/latest?cb=20120324222406";
+      return "./Bilder/BiggsDarklighter.png";
     case "10":
-      return "https://images.aftonbladet-cdn.se/v2/images/c9329b68-df83-4d47-abf0-23a6ca6784a1?fit=crop&format=auto&h=1094&q=50&w=1900&s=cb49325021ddbefe7caf4612ae07d2086ac29ccf";
+      return "./Bilder/ObiWanKenobi.jpeg";
     default:
   }
 };
