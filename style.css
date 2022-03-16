@@ -1,0 +1,149 @@
+@font-face {
+  font-family: StarWars;
+  src: url("Starjedi.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  background-color: rgb(15, 15, 15);
+}
+
+.dataWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dataOne,
+.dataTwo {
+  width: 400px;
+}
+#char-1,
+#char-2 {
+  background-color: rgb(235, 231, 3);
+  cursor: pointer;
+  height: 27px;
+  border-radius: 7px;
+}
+.char img {
+  height: 200px;
+  width: 150px;
+  border-radius: 7px;
+}
+
+.char {
+  margin: 0 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#compareBtn {
+  background-color: rgb(235, 231, 3);
+  cursor: pointer;
+  margin-bottom: 30px;
+  border-radius: 7px;
+  font-size: 13px;
+  padding: 5px;
+  border: 1.5px solid #8d8b8b;
+}
+
+button.showBtn {
+  background-color: rgb(235, 231, 3);
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 7px;
+  padding: 5px;
+  margin-top: -3px;
+}
+
+.showBtn:hover,
+#compareBtn:hover,
+#char-1:hover,
+#char-2:hover {
+  background-color: black;
+  color: rgb(235, 231, 3);
+}
+
+.info1,
+.info2,
+.name {
+  color: white;
+}
+
+.info1,
+.info2 {
+  background-color: rgba(128, 128, 128, 0.349);
+  border-radius: 10px;
+  width: 250px;
+  font-size: 16px;
+  padding: 5px;
+  margin: 0 2vw;
+}
+
+h1 {
+  color: rgb(235, 231, 3);
+  font-family: StarWars;
+  margin-top: 50px;
+  font-size: 55px;
+  margin-bottom: 80px;
+  text-shadow: 2px 2px;
+  text-shadow: 2px 2px 5px rgb(235, 231, 3);
+}
+
+.h-contatiner {
+  display: flex;
+  justify-content: center;
+}
+
+.sel-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+label {
+  color: rgb(235, 231, 3);
+  font-size: 22px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.name {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.back-img {
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/623/295/665/star-wars-storm-troopers-stormtrooper-wallpaper-preview.jpg");
+  background-position: center;
+  filter: brightness(70%);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
