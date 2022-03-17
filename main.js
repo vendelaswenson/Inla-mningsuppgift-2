@@ -12,7 +12,7 @@ class Character {
   compLength(data) {
     const heightComp = Math.floor(this.height) - Math.floor(data.height);
     const heightComp2 = Math.floor(data.height) - Math.floor(this.height);
-    if (Number(this.height) > Number(data.height)) {
+    if (+this.height > +data.height) {
       if (this == infoOne) {
         info1.innerHTML = `<h3>My height is ${this.height} cm and ${data.name}'s height is ${data.height} cm! That's ${heightComp} cm less than me!</h3>`;
       } else if (this == infoTwo) {
@@ -35,7 +35,7 @@ class Character {
   compWeight(data) {
     const weightComp = Math.floor(this.mass) - Math.floor(data.mass);
     const weightComp2 = Math.floor(data.mass) - Math.floor(this.mass);
-    if (Number(this.mass) > Number(data.mass)) {
+    if (+this.mass > +data.mass) {
       if (this == infoOne) {
         info1.innerHTML = `<h3>My weight is ${this.mass}kg and ${data.name} 's weight is ${data.mass} kg. That's ${weightComp} kg less than me!</h3>`;
       } else if (this == infoTwo) {
@@ -64,17 +64,27 @@ class Character {
         (this.gender === "none" && data.gender === "n/a")
       ) {
         info1.innerHTML = `<h3>Niether of us know what our gender is :((</h3>`;
-        info2.innerHTML = `<h3>Niether of us know what our gender is :((</h3>`;
+      } else if (data.gender === "n/a" || data.gender === "none") {
+        info1.innerHTML = `<h3>My gender is ${this.gender} but ${data.name} doesn't know wich gender he/she has</h3>`;
       } else if (this.gender === "n/a" || this.gender === "none") {
         info1.innerHTML = `<h3>I don't know what my gender is :( ${data.name}'s gender is ${data.gender}</h3>`;
       } else if (this.gender == data.gender) {
-        info1.innerHTML = `<h3>We both have the same gender of ${this.gender}</h3>`;
+        info1.innerHTML = `<h3>We both have the same gender of ${this.gender}!</h3>`;
       } else {
         info1.innerHTML = `<h3>My gender is ${this.gender} and ${data.name}'s gender is ${data.gender}!</h3>`;
       }
     } else {
-      if (this.gender == data.gender) {
-        info2.innerHTML = `<h3>We both have the same gender of ${this.gender}</h3>`;
+      if (
+        (this.gender === "none" && data.gender === "none") ||
+        (this.gender === "n/a" && data.gender === "n/a") ||
+        (this.gender === "n/a" && data.gender === "none") ||
+        (this.gender === "none" && data.gender === "n/a")
+      ) {
+        info2.innerHTML = `<h3>Niether of us know what our gender is :((</h3>`;
+      } else if (this.gender == data.gender) {
+        info2.innerHTML = `<h3>We both have the same gender of ${this.gender}!</h3>`;
+      } else if (data.gender === "n/a" || data.gender === "none") {
+        info2.innerHTML = `<h3>My gender is ${this.gender} but ${data.name} doesn't know wich gender he/she has</h3>`;
       } else if (this.gender === "n/a" || this.gender === "none") {
         info2.innerHTML = `<h3>I don't know what my gender is :( ${data.name}'s gender is ${data.gender}</h3>`;
       } else {
@@ -92,9 +102,10 @@ class Character {
         (this.hairColor === "none" && data.hairColor === "n/a")
       ) {
         info1.innerHTML = `<h3>Niether of us have hair :((</h3>`;
-        info2.innerHTML = `<h3>Niether of us have hair :((</h3>`;
       } else if (this.hairColor === "none" || this.hairColor === "n/a") {
         info1.innerHTML = `<h3>I don't have any hair :( ${data.name} has really beautiful ${data.hairColor} hair</h3>`;
+      } else if (data.gender === "n/a" || data.gender === "none") {
+        info1.innerHTML = `<h3>My hair color is ${this.hairColor} but ${data.name} doesn't have any hair</h3>`;
       } else if (this.hairColor == data.hairColor) {
         info1.innerHTML = `<h3>We both have the same haircolor!</h3>`;
       } else {
@@ -107,10 +118,11 @@ class Character {
         (this.hairColor === "n/a" && data.hairColor === "none") ||
         (this.hairColor === "none" && data.hairColor === "n/a")
       ) {
-        info1.innerHTML = `<h3>Niether of us have hair :((</h3>`;
         info2.innerHTML = `<h3>Niether of us have hair :((</h3>`;
       } else if (this.hairColor === "none" || this.hairColor === "n/a") {
         info2.innerHTML = `<h3>I dont have any hair :( ${data.name} has really beautiful ${data.hairColor} hair</h3>`;
+      } else if (data.gender === "n/a" || data.gender === "none") {
+        info2.innerHTML = `<h3>My hair color is ${this.hairColor} but ${data.name} doesn't have any hair</h3>`;
       } else if (this.hairColor == data.hairColor) {
         info2.innerHTML = `<h3>We both have the same haircolor!</h3>`;
       } else {
@@ -195,6 +207,8 @@ showBtn.addEventListener("click", () => {
 
   if (inputValue == "null" || inputValue2 == "null") {
     alert("You need to pick two characters!");
+  } else if (inputValue === inputValue2) {
+    alert("You need to choose two different characters!");
   } else {
     info1.innerHTML = "";
     info2.innerHTML = "";
